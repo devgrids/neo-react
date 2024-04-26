@@ -84,7 +84,7 @@ const Header = ({ user, loading, className }) => {
             <img
               className="image"
               alt="logo"
-              src="/images/lingua.png"
+              src="/images/ia.png"
               style={{
                 height: 40,
                 width: 40,

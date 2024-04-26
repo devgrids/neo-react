@@ -9,7 +9,7 @@ import InformationFooter from "@/components/InformationFooter";
 import SelectedModel from "@/components/SelectedModel";
 import ChatApi from "@/lib/api/ai/chat";
 
-const Chat = () => {
+const LanguageProcessing = () => {
   const { data, loading } = useGetUser();
   const msgEnd = useRef(null);
 
@@ -70,7 +70,7 @@ const Chat = () => {
           <div className="sideBar">
             <div className="upperSide">
               <div className="upperSideBottom">
-                <HeaderVertical></HeaderVertical>
+                <HeaderVertical user={data} loading={loading}></HeaderVertical>
               </div>
             </div>
             <div className="lowerSide">
@@ -136,4 +136,4 @@ const Chat = () => {
   );
 };
 
-export default withAuth(Chat)();
+export default withAuth(LanguageProcessing)();

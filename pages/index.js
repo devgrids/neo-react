@@ -5,12 +5,10 @@ import HeaderVertical from "@/components/HeaderVertical";
 import ChatResponse from "@/components/ChatResponse";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import InformationFooter from "@/components/InformationFooter";
-import SelectedModel from "@/components/SelectedModel";
 
-const Index = ({ user, loading, className }) => {
-  const { data } = useGetUser();
+const Index = () => {
+  const { data, loading } = useGetUser();
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
 
   var message = `
 ### Programa de Inteligencia Artificial Multimodal
@@ -61,6 +59,8 @@ Este programa de inteligencia artificial multimodal utiliza una variedad de mode
 Este programa de inteligencia artificial multimodal ofrece un conjunto completo de herramientas para satisfacer las necesidades de una amplia gama de aplicaciones y usuarios. Desde la generación de texto hasta la creación de imágenes, pasando por la interacción conversacional, este programa ofrece soluciones avanzadas para desafíos complejos en el campo de la inteligencia artificial.
 `;
 
+  console.log(data);
+
   return (
     <BaseLayout user={data} loading={loading}>
       <div className="PageChat">
@@ -68,22 +68,11 @@ Este programa de inteligencia artificial multimodal ofrece un conjunto completo 
           <div className="sideBar">
             <div className="upperSide">
               <div className="upperSideBottom">
-                <HeaderVertical></HeaderVertical>
+                <HeaderVertical user={data} loading={loading}></HeaderVertical>
               </div>
             </div>
             <div className="lowerSide">
-              <div className="listItems">
-                <img
-                  src="images/rocket.svg"
-                  alt="Upgrade"
-                  className="listItemsImg"
-                />
-                Modelo
-              </div>
-
-              <div className="listItems">
-                <SelectedModel></SelectedModel>
-              </div>
+              <div className="listItems">Modelo</div>
             </div>
           </div>
           <div className="main">

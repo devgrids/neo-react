@@ -10,7 +10,7 @@ import InformationFooter from "@/components/InformationFooter";
 import SelectedModel from "@/components/SelectedModel";
 import ChatVisionApi from "@/lib/api/ai/chat_vision";
 
-const ChatVision = () => {
+const ImageProcessing = () => {
   const { data, loading } = useGetUser();
   const msgEnd = useRef(null);
 
@@ -126,7 +126,7 @@ const ChatVision = () => {
           <div className="sideBar">
             <div className="upperSide">
               <div className="upperSideBottom">
-                <HeaderVertical></HeaderVertical>
+                <HeaderVertical user={data} loading={loading}></HeaderVertical>
               </div>
             </div>
             <div className="lowerSide">
@@ -239,4 +239,4 @@ const removeButtonStyle = {
   zIndex: "1",
 };
 
-export default withAuth(ChatVision)();
+export default withAuth(ImageProcessing)();
