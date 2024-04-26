@@ -28,7 +28,7 @@ const ImageProcessing = () => {
       text:
         "Hola " +
         data["name"] +
-        " soy Visión Link encantado de verte, en qué puedo ayudarte?",
+        ", soy el procesador de imágenes de GEMINI, en qué puedo ayudarte?",
       isBot: true,
       has_image: false,
     },
@@ -149,9 +149,7 @@ const ImageProcessing = () => {
               {messages.map((message, i) => (
                 <ChatResponse
                   key={i}
-                  image={
-                    message.isBot ? "../images/ia.png" : data["picture"]
-                  }
+                  image={message.isBot ? "../images/ia.png" : data["picture"]}
                   bot={message.isBot ? true : false}
                 >
                   <MarkdownRenderer markdownText={message.text} />

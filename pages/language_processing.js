@@ -19,7 +19,7 @@ const LanguageProcessing = () => {
   const [messages, setMessagess] = useState([
     {
       text:
-        "Hola " + data["name"] + " encantado de verte, en qué puedo ayudarte?",
+        "Hola " + data["name"] + ", soy el procesador de lenguaje de GEMINI, en qué puedo ayudarte?",
       isBot: true,
     },
   ]);
