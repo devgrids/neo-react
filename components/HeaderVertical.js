@@ -20,9 +20,9 @@ const HeaderVertical = ({ user, loading }) => {
           {!user && <></>}
           {isAuthorized(user, "admin") && (
             <>
-              <Query image="../images/message.svg" href="/image_processing">
-                Traducción
-              </Query>
+              {/* <Query image="../images/message.svg" href="/image_processing">
+                Transcripción de video - YouTube
+              </Query> */}
             </>
           )}
         </>
