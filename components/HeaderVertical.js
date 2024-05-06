@@ -6,6 +6,11 @@ const HeaderVertical = ({ user, loading }) => {
     <>
       {!loading && (
         <>
+          {!user && (
+            <>
+              "¡Hola! Bienvenido. Para usar el chat, por favor inicia sesión."
+            </>
+          )}
           {user && (
             <>
               <Query image="../images/message.svg" href="/language_processing">
@@ -17,7 +22,6 @@ const HeaderVertical = ({ user, loading }) => {
             </>
           )}
 
-          {!user && <></>}
           {isAuthorized(user, "admin") && (
             <>
               {/* <Query image="../images/message.svg" href="/image_processing">

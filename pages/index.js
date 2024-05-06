@@ -19,7 +19,6 @@ const Index = () => {
           <div className="main">
             <div className="chats">
               <ChatResponse key={0} image={"./images/ia.png"} bot={true}>
-                "¡Hola! Bienvenido. Para usar el chat, por favor inicia sesión."
                 <HeaderVertical user={data} loading={loading}></HeaderVertical>
               </ChatResponse>
             </div>
