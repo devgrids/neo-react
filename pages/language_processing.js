@@ -7,13 +7,13 @@ import ChatResponse from "@/components/ChatResponse";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import InformationFooter from "@/components/InformationFooter";
 import SelectedModel from "@/components/SelectedModel";
-import ChatApi from "@/lib/api/ai/chat";
+import LanguageProcessingApi from "@/lib/api/ai/language_processing";
 
 const LanguageProcessing = () => {
   const { data, loading } = useGetUser();
   const msgEnd = useRef(null);
 
-  const chatApi = new ChatApi();
+  const languageProcessingApi = new LanguageProcessingApi();
 
   const [input, setInput] = useState("");
   const [messages, setMessagess] = useState([
@@ -36,9 +36,9 @@ const LanguageProcessing = () => {
 
   async function _sendMessage() {
     _openLoading();
-    const json = await chatApi.sendMessage(input);
+    const json = await languageProcessingApi.sendMessage(input);
     _closeLoading();
-    let textResult = json.data.result;
+    let textResult = json.data.data;
     setMessagess([
       ...messages,
       {

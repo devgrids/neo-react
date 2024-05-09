@@ -8,7 +8,7 @@ import ChatResponse from "@/components/ChatResponse";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import InformationFooter from "@/components/InformationFooter";
 import SelectedModel from "@/components/SelectedModel";
-import ChatVisionApi from "@/lib/api/ai/chat_vision";
+import ImageProcessingApi  from "@/lib/api/ai/image_processing";
 
 const ImageProcessing = () => {
   const { data, loading } = useGetUser();
@@ -16,7 +16,7 @@ const ImageProcessing = () => {
 
   let index_image = 0;
 
-  const chatVisionApi = new ChatVisionApi();
+  const imageProcessingApi = new ImageProcessingApi();
 
   const [image, setImage] = useState(null);
   const [imageBase64, setImageBase64] = useState(null);
@@ -55,16 +55,16 @@ const ImageProcessing = () => {
 
     let json;
     if (input != "") {
-      json = await chatVisionApi.sendMessage(input, imageBase64);
+      json = await imageProcessingApi.sendMessage(input, imageBase64);
     } else {
-      json = await chatVisionApi.sendMessage(
-        "Descripción breve de la imagen",
+      json = await imageProcessingApi.sendMessage(
+        "que observas?",
         imageBase64
       );
     }
 
     _closeLoading();
-    let textResult = json.data.result;
+    let textResult = json.data.data;
     setMessagess([
       ...messages,
       {

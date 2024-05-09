@@ -8,10 +8,6 @@ import InformationFooter from "@/components/InformationFooter";
 
 const Index = () => {
   const { data, loading } = useGetUser();
-  const [isOpen, setIsOpen] = useState(false);
-
-  console.log(data);
-
   return (
     <BaseLayout user={data} loading={loading}>
       <div className="PageChat">
